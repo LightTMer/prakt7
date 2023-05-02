@@ -1,0 +1,350 @@
+/*Работа с модальным окном*/
+@import "~bootstrap/scss/bootstrap";
+
+.button {
+    background: #12c9c0;
+    padding: 1em 1.5em; //размер кнопки
+    color: #fff; //текст внутри кнопки
+    border: 0; //обводка 
+    border-radius: 10px; //срезаем углы
+    cursor: pointer; //при наведении на кнопку меняем курсор
+  }
+  
+  .button:hover {
+    background: #49acaf; // при наведении
+  }
+  
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); //затемняем фон
+  
+  }
+  
+  .modal-content {
+    margin: 10% auto;
+    width: 60%;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17); //тень вокруг окна
+    animation-name: modalopen;
+    animation-duration: var(--modal-duration);
+  }
+  
+  .modal-header h2,
+  .modal-footer h3 {
+    color: white;
+    margin: 0;
+  }
+  
+  .modal-header {
+    background: var(--modal-color);
+    padding: 15px;
+    color: #ffffff;
+    background-color: rgb(94, 94, 238);
+  }
+  
+  .modal-body {
+    padding: 10px 20px;
+    background: #fff;
+  
+  }
+  
+  .modal-footer {
+    background: var(--modal-color);
+    padding: 10px;
+    color: #ffffff;
+    background-color: rgb(94, 94, 238);
+    text-align: center;
+  }
+  
+  .close {
+    color: #ccc;
+    float: right;
+    font-size: 30px;
+    color: #fff;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  @keyframes modalopen {
+    from {
+    opacity: 0;
+    }
+    to {
+    opacity: 1;
+    }
+  }
+  // Работа со слайдером
+#slider_bl .wrapper{
+    max-width:60em;margin:1em auto;position:relative
+  }
+  #slider_bl input{
+    display:none
+  }
+  #slider_bl .inner{
+    width:500%;line-height:0
+  }
+  #slider_bl article{
+    width:20%;float:left;position:relative
+  }
+  #slider_bl article img{
+    width:100%
+  }
+  #slider_bl .slider-prev-next-control{
+    height:50px;position:absolute;top:50%;width:100%;-webkit-transform:translateY(-50%);-moz-transform:translateY(-50%);-ms-transform:translateY(-50%);-o-transform:translateY(-50%);transform:translateY(-50%)}
+  #slider_bl .slider-prev-next-control label{
+    display:none;width:40px;height:40px;border-radius:50%;background:#fff;opacity:.7
+  }
+  #slider_bl .slider-prev-next-control label:hover{
+    opacity:1
+  }
+  #slider_bl .slider-dot-control{
+    position:absolute;width:100%;bottom:0;text-align:center
+  }
+  
+  #slider_bl .slider-dot-control label:hover{
+    background:#ccc;border-color:#777
+  }
+  #slider_bl .info{
+    position:absolute;font-style:italic;line-height:100px;opacity:0;color:#000;text-align:left;-webkit-transition:all 1s ease-out .6s;-moz-transition:all 1s ease-out .6s;transition:all 1s ease-out .6s}
+  #slider_bl .info 
+  #slider_bl .info.top-left{
+    top:30px;left:30px
+  }
+  #slider_bl .info.top-right{
+    top:30px;right:30px
+  }
+  #slider_bl .info.bottom-left{
+    bottom:30px;left:30px
+  }
+  #slider_bl .info.bottom-right{
+    bottom:30px;right:30px
+  }
+  #slider_bl .slider-wrapper{
+    width:100%;overflow:hidden;border-radius:5px;box-shadow:1px 1px 4px #666;background:#fff;background:#fcfff4;-webkit-transform:translateZ(0);-moz-transform:translateZ(0);-ms-transform:translateZ(0);-o-transform:translateZ(0);transform:translateZ(0);-webkit-transition:all .5s ease-out;-moz-transition:all .5s ease-out;transition:all .5s ease-out}
+  #slider_bl .slider-wrapper .inner{
+    -webkit-transform:translateZ(0);-moz-transform:translateZ(0);-ms-transform:translateZ(0);-o-transform:translateZ(0);transform:translateZ(0);-webkit-transition:all .8s cubic-bezier(.77,0,.175,1);-moz-transition:all .8s cubic-bezier(.77,0,.175,1);transition:all .8s cubic-bezier(.77,0,.175,1)}
+  #slider_bl #slide1:checked~.slider-prev-next-control label:nth-child(2)::after,
+  #slider_bl #slide1:checked~.slider-prev-next-control label:nth-child(5)::after,
+  #slider_bl #slide2:checked~.slider-prev-next-control label:nth-child(1)::after,
+  #slider_bl #slide2:checked~.slider-prev-next-control label:nth-child(3)::after,
+  #slider_bl #slide3:checked~.slider-prev-next-control label:nth-child(2)::after,
+  #slider_bl #slide3:checked~.slider-prev-next-control label:nth-child(4)::after,
+  #slider_bl #slide4:checked~.slider-prev-next-control label:nth-child(3)::after,
+  #slider_bl #slide4:checked~.slider-prev-next-control label:nth-child(5)::after,
+  #slider_bl #slide5:checked~.slider-prev-next-control label:nth-child(1)::after,
+  #slider_bl #slide5:checked~.slider-prev-next-control label:nth-child(4)::after{
+    font-family:FontAwesome;font-style:normal;font-weight:400;text-decoration:inherit;margin:0;line-height:38px;font-size:3em;display:block;color:#777
+  }
+  #slider_bl #slide1:checked~.slider-prev-next-control label:nth-child(2)::after,
+  #slider_bl #slide2:checked~.slider-prev-next-control label:nth-child(3)::after,
+  #slider_bl #slide3:checked~.slider-prev-next-control label:nth-child(4)::after,
+  #slider_bl #slide4:checked~.slider-prev-next-control label:nth-child(5)::after,
+  #slider_bl #slide5:checked~.slider-prev-next-control label:nth-child(1)::after{
+    content:azure;padding-left:15px
+  }
+    #slider_bl #slide1:checked~.slider-prev-next-control label:nth-child(2),
+    #slider_bl #slide2:checked~.slider-prev-next-control label:nth-child(3),
+    #slider_bl #slide3:checked~.slider-prev-next-control label:nth-child(4),
+    #slider_bl #slide4:checked~.slider-prev-next-control label:nth-child(5),
+    #slider_bl #slide5:checked~.slider-prev-next-control label:nth-child(1){
+      display:block;float:right;margin-right:5px
+    }#slider_bl #slide1:checked~.slider-prev-next-control label:nth-child(5),
+    #slider_bl #slide2:checked~.slider-prev-next-control label:nth-child(1),
+    #slider_bl #slide3:checked~.slider-prev-next-control label:nth-child(2),
+    #slider_bl #slide4:checked~.slider-prev-next-control label:nth-child(3),
+    #slider_bl #slide5:checked~.slider-prev-next-control label:nth-child(4){
+      display:block;float:left;margin-left:5px
+    }
+    #slider_bl #slide1:checked~.slider-prev-next-control label:nth-child(5)::after,
+    #slider_bl #slide2:checked~.slider-prev-next-control label:nth-child(1)::after,
+    #slider_bl #slide3:checked~.slider-prev-next-control label:nth-child(2)::after,
+    #slider_bl #slide4:checked~.slider-prev-next-control label:nth-child(3)::after,
+    #slider_bl #slide5:checked~.slider-prev-next-control label:nth-child(4)::after{
+      content:azure;padding-left:8px}
+      #slider_bl #slide1:checked~.slider-dot-control label:nth-child(1),
+      #slider_bl #slide2:checked~.slider-dot-control label:nth-child(2),
+      #slider_bl #slide3:checked~.slider-dot-control label:nth-child(3),
+      #slider_bl #slide4:checked~.slider-dot-control label:nth-child(4),
+      #slider_bl #slide5:checked~.slider-dot-control label:nth-child(5){
+        background:#333}#slider_bl #slide1:checked~.slider-wrapper article:nth-child(1) .info,
+        #slider_bl #slide2:checked~.slider-wrapper article:nth-child(2) .info,
+        #slider_bl #slide3:checked~.slider-wrapper article:nth-child(3) .info,
+        #slider_bl #slide4:checked~.slider-wrapper article:nth-child(4) .info,
+        #slider_bl #slide5:checked~.slider-wrapper article:nth-child(5) .info{
+          opacity:1}
+          #slider_bl #slide1:checked~.slider-wrapper .inner{
+            margin-left:0
+          }
+          #slider_bl #slide2:checked~.slider-wrapper .inner{
+            margin-left:-100%
+          }
+          #slider_bl #slide3:checked~.slider-wrapper .inner{
+            margin-left:-200%
+          }
+            #slider_bl #slide4:checked~.slider-wrapper .inner{
+              margin-left:-300%
+            }
+              #slider_bl #slide5:checked~.slider-wrapper .inner{
+                margin-left:-400%
+              }@media only screen and (max-width:850px) and (min-width:450px){
+                #slider_bl .slider-wrapper{
+                  border-radius:0}}
+                  @media only screen and (max-width:450px){
+                    #slider_bl .slider-wrapper{border-radius:0}
+                    #slider_bl .slider-wrapper .info{opacity:0}
+                  }
+                    @media only screen and (min-width:850px){
+                      #slider_bl body{
+                        padding:0 80px
+                      }
+                  }    
+
+
+                //Модальное окно на jQuery
+                  .popup-fade {
+                    display: none;
+                }
+                .popup-fade:before {
+                    content: '';
+                    background: #000;
+                    position: fixed; 
+                    left: 0;
+                    top: 0;
+                    width: 100%; 
+                    height: 100%;
+                    opacity: 0.7;
+                    z-index: 9999;
+                }
+                .popup {
+                    position: fixed;
+                    top: 20%;
+                    left: 50%;
+                    padding: 20px;
+                    width: 360px;
+                    margin-left: -200px;	
+                    background: #fff;
+                    border: 1px solid orange;
+                    border-radius: 4px; 
+                    z-index: 99999;
+                    opacity: 1;	
+                }
+                .popup-close {
+                    position: absolute;
+                    top: 10px;
+                    right: 10px;
+                }
+                .vie{
+                    padding: 10px;
+                }
+
+                // jQuery slider
+                .wrapper {
+                    padding: 100px 0;
+                    width: 550px;
+                
+                }
+                
+                .slider {
+                    
+                    position: relative;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                  
+                  .arrow {
+                    cursor: pointer;
+                    width: 50px;
+                    
+                    &:hover {
+                      opacity: .8;
+                    }
+                    
+                    &.right {
+                      transform: rotate(180deg);
+                    }
+                  }
+                  
+                  .container-images {
+                    position: relative;
+                    width: 400px;
+                    height: 250px;
+                    overflow: hidden;
+                
+                    -webkit-box-shadow: 10px 10px 61px -10px rgba(0,0,0,0.75);
+                    -moz-box-shadow: 10px 10px 61px -10px rgba(0,0,0,0.75);
+                    box-shadow: 10px 10px 61px -10px rgba(0,0,0,0.75);
+                    
+                    img {
+                      width: 100%;
+                      position: absolute;
+                      top: 50%;
+                      transition-duration: .5s;
+                      transform: translateY(-50%);
+                    }
+                  }
+                  
+                  &.right .container-images img {
+                    left: -100%;
+                    z-index: -1;
+                
+                    &.active {
+                      z-index: 1;
+                      left: 0;
+                    }
+                
+                    &.to_right {
+                      left: 100%;
+                    }
+                  }
+                  
+                  &.left .container-images img {
+                    right: -100%;
+                    z-index: -1;
+                    
+                    &.active {
+                      z-index: 1;
+                      right: 0;
+                    }
+                    
+                    &.to_left {
+                      right: 100%;
+                    }
+                  }
+                }
+                // Задний фон для слайдера на jQuery
+                .sle{
+                   
+                    margin: 0;
+                    padding: 0;
+
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    background: #9a09ee;
+                    background: -webkit-linear-gradient(to right, #0e85b4, #4609ee);
+                    background: linear-gradient(to right, #09c6ff, #0946ee);
+
+                    width: 50vw;
+                    height: 50vh;
+                }
+                .bootslider{
+                    width: 50vw;
+                    height: 50vh;
+                    padding: 100px;
+                }
+                .disp{
+                    display: none;
+                }
+                

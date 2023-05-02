@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href="./src/style.css">
+    <title>Document</title>
+</head>
+<body>
+
+  <!-- Вывод данных из json файла с помощью handlebars -->
+  <h2>Вывод данных с помощью handlebars: </h2>
+  <div id="root"></div>
+
+<!-- Вывод даннных из json файла -->
+
+  <div class ="box" id ="blocker">
+    <h3>Вывод данных из json файла: </h3>
+  </div>
+
+  <!-- Полный вывод json файла -->
+  <div class="container>
+    <div class="row" id="quotes">
+    </div>
+    <h3>Полный вывод json файла: </h3>
+   </div>
+
+  <script type = "module">
+    import jsoner from "./data/data.json";
+    var array = require("./data/data.json")
+    var str = JSON.stringify(array, null, 2); 
+    let pre = document.createElement("pre");
+    pre.innerText = str;
+    document.body.appendChild(pre);
+
+  let quoteMarkup = '';
+  for (var i = 0; i < jsoner.blocks.length; i++) {
+  let name = jsoner.blocks[i].title, 
+  content = jsoner.blocks[i].content;
+  active = jsoner.blocks[i].is_active;
+  quoteMarkup += '<div class="col-12 col-sm-6">' + 
+  '<h5>' + name + '</h5>' + 
+  '<p>' + "Content: " + content + '</p>' +
+  '<p>' + "Active: " + active + '</p>'
+  '</div>'
+  }
+  document.getElementById('quotes').innerHTML = quoteMarkup;
+  </script>
+  
+  <!--Модальное окно -->
+    <div class = "container">
+        <h2>Кнопка для активации модального окна:</h2>
+          <button id="modal-btn" class="button">Open modal window</button>
+          <div id="my-modal" class="modal">
+          <div class="modal-content">
+          <div class="modal-header">
+          <span class="close">×</span>
+          <h2>Модальное окно</h2>
+          </div>
+          <div class="modal-body">
+          <p>Добро пожаловать!</p>
+          <p>Благодарим вас за то, что посетили наш сайт!</p>
+          </div>
+          <div class="modal-footer">
+          <h3>Конец</h3>
+          </div>
+          </div>
+          </div>
+    </div>
+ 
+     <!-- Работа со слайдером -->
+  <section id="slider_bl">
+    <h2>Слайдер:</h2>
+    <div class="wrapper">
+      <input checked type=radio name="slider" id="slide1" />
+      <input type=radio name="slider" id="slide2" />
+      <input type=radio name="slider" id="slide3" />
+      <input type=radio name="slider" id="slide4" />
+      <div class="slider-wrapper">
+        <div class=inner>
+          <article>
+            <div class="info top-left">
+              </div>
+            <img src="https://images.wallpaperscraft.ru/image/single/kot_morda_glaza_lezhat_52287_3888x2592.jpg" />
+          </article>
+          <article>
+            <div class="info bottom-right">
+              </div>
+            <img src="https://w-dog.ru/wallpapers/5/19/376948382466555/koshka-kot-polosatyj-glaza-zelenye-sidit-lavka-skamya.jpg" />
+          </article>
+          <article>
+            <div class="info bottom-left">
+              </div>
+            <img src="https://w-dog.ru/wallpapers/1/42/515629262768626/seryj-britanskij-kot.jpg" />
+          </article>
+          <article>
+            <div class="info top-right">
+              </div>
+            <img src="https://chudo-prirody.com/uploads/posts/2021-08/1628632789_2-p-kot-rizhii-foto-2.jpg" />
+          </article>
+        </div>
+      </div>
+      <div class="slider-prev-next-control">
+        <label for=slide1></label>
+        <label for=slide2></label>
+        <label for=slide3></label>
+        <label for=slide4></label>
+      </div>
+      <div class="slider-dot-control">
+        <label for=slide1></label>
+        <label for=slide2></label>
+        <label for=slide3></label>
+        <label for=slide4></label>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Конпка открытия модального окна  -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Открыть модальное окно на bootstrap
+  </button>
+  
+  <!-- Модальное окно bootstrap -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Добро пожаловать!</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Доброго времени суток!
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Модальное окно на jQurey -->
+  <div class = "vie">
+    <button class="popup-open">Открыть модальное окно на jQurey</button>
+      <!-- <a class="popup-open" href="#">Открыть окно на jQurey</a> -->
+        <div class="popup-fade">
+            <div class="popup">
+                <a class="popup-close" href="#">Закрыть</a>
+                <p>Модальное окно</p>
+            </div>		
+        </div>
+  </div>
+
+  <!-- Слайдер на jQurey -->
+  <div class="sle">
+    <h2>Слайдер на jQurey</h2>    
+      <div class="wrapper">
+        <div class="slider right">
+            <div id = "ld" class="arrow left">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 292.359 292.359">
+                    <path d="M222.979 5.424C219.364 1.807 215.08 0 210.132 0c-4.949 0-9.233 1.807-12.848 5.424L69.378 133.331c-3.615 3.617-5.424 7.898-5.424 12.847s1.809 9.233 5.424 12.847l127.906 127.907c3.614 3.617 7.898 5.428 12.848 5.428 4.948 0 9.232-1.811 12.847-5.428 3.617-3.614 5.427-7.898 5.427-12.847V18.271c-.001-4.949-1.81-9.229-5.427-12.847z" fill="#FFFFFF"/>
+                </svg>
+            </div>
+    
+            <div class="container-images">
+                <img class="active" src="https://mtdata.ru/u23/photoDB12/20307234756-0/original.jpg">
+                <img src="https://proprikol.ru/wp-content/uploads/2020/08/krasivye-kartinki-kotov-50.jpg">
+                <img src="https://w-dog.ru/wallpapers/5/18/289291145046987/evropejskaya-koshka-dikij-kot-morda-vzglyad.jpg">
+            </div>
+    
+            <div id = "rd" class="arrow right">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 292.359 292.359">
+                    <path d="M222.979 5.424C219.364 1.807 215.08 0 210.132 0c-4.949 0-9.233 1.807-12.848 5.424L69.378 133.331c-3.615 3.617-5.424 7.898-5.424 12.847s1.809 9.233 5.424 12.847l127.906 127.907c3.614 3.617 7.898 5.428 12.848 5.428 4.948 0 9.232-1.811 12.847-5.428 3.617-3.614 5.427-7.898 5.427-12.847V18.271c-.001-4.949-1.81-9.229-5.427-12.847z" fill="#FFFFFF"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <!-- Слайдер на bootstrap  -->
+  <div class="bootslider">
+    <h2>Слайдер на bootstrap</h2>
+      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://i.pinimg.com/originals/a5/9d/bf/a59dbf62dad48a2e6fb1406c5a7c5845.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="https://sun9-69.userapi.com/d6s53imQ7xgZySJ0lpE8OQE7UxghPXHUZ3IiEA/dXgO9MNDDAY.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="https://sun9-42.userapi.com/impg/PI8tlkKtdo5Qpm6uXWl_lWmtpi3lsE71qxdEuw/B1vq1s5ZaAo.jpg?size=897x663&quality=95&sign=d37bf9158f8b0aa01443089de0a6387d&c_uniq_tag=2iLqV4VGrQOtdUSFfb545FCHBQrVj1r1mJWnRG_NrvM&type=album" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Предыдущий</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Следующий</span>
+        </button>
+      </div>
+  </div>
+  
+  <!-- Slider  -->
+  <script type="module" src="./src/script.js"> 
+  </script>
+    
+</body>
+</html>

@@ -1,0 +1,8 @@
+<div class="row">
+    {{#each blocks}}
+        <div class="text{{#if is_active}} active{{/if}} col-md-4 text-primary">
+            <h2>{{title}}</h2>
+            <p>{{content}}</p>
+        </div>
+    {{/each}}
+</div>

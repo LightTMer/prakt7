@@ -1,0 +1,7 @@
+{
+  "h_name": "sample h",
+  "blocks": [
+    { "title": "title", "content": "some text", "is_active": true },
+    { "title": "title2", "content": "some text2", "is_active": false }
+  ]
+}
