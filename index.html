@@ -13,40 +13,6 @@
   <h2>Вывод данных с помощью handlebars: </h2>
   <div id="root"></div>
 
-<!-- Вывод даннных из json файла -->
-
-  <div class ="box" id ="blocker">
-    <h3>Вывод данных из json файла: </h3>
-  </div>
-
-  <!-- Полный вывод json файла -->
-  <div class="container>
-    <div class="row" id="quotes">
-    </div>
-    <h3>Полный вывод json файла: </h3>
-   </div>
-
-  <script type = "module">
-    import jsoner from "./data/data.json";
-    var array = require("./data/data.json")
-    var str = JSON.stringify(array, null, 2); 
-    let pre = document.createElement("pre");
-    pre.innerText = str;
-    document.body.appendChild(pre);
-
-  let quoteMarkup = '';
-  for (var i = 0; i < jsoner.blocks.length; i++) {
-  let name = jsoner.blocks[i].title, 
-  content = jsoner.blocks[i].content;
-  active = jsoner.blocks[i].is_active;
-  quoteMarkup += '<div class="col-12 col-sm-6">' + 
-  '<h5>' + name + '</h5>' + 
-  '<p>' + "Content: " + content + '</p>' +
-  '<p>' + "Active: " + active + '</p>'
-  '</div>'
-  }
-  document.getElementById('quotes').innerHTML = quoteMarkup;
-  </script>
   
   <!--Модальное окно -->
     <div class = "container">
